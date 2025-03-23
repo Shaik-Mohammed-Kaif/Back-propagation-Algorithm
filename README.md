@@ -1,8 +1,6 @@
 # Back-propagation-Algorithm
 This Algo to Process Back propagation Algorithm.
 
-# FORMULAS:
-
 ### **Neural Network Training Formulas**  
 
 #### **1. Data Normalization**  
@@ -15,7 +13,7 @@ y_{\text{normalized}} = \frac{y}{\max(y)}
 
 #### **2. Hidden Layer Input**  
 \[
-H_{\text{input}} = (X \times Wh) + Bh
+H_{\text{input}} = (X \times W_h) + B_h
 \]
 
 #### **3. Activation Function (Sigmoid)**  
@@ -28,7 +26,7 @@ H_{\text{output}} = f(H_{\text{input}})
 
 #### **4. Output Layer Input**  
 \[
-O_{\text{input}} = (H_{\text{output}} \times Wo) + Bo
+O_{\text{input}} = (H_{\text{output}} \times W_o) + B_o
 \]
 
 #### **5. Output Activation (Sigmoid)**  
@@ -48,23 +46,23 @@ E = y - O_{\text{output}}
 
 #### **8. Gradient for Hidden Layer**  
 \[
-\Delta H = \Delta O \times Wo^T \times H_{\text{output}} \times (1 - H_{\text{output}})
+\Delta H = \Delta O \times W_o^T \times H_{\text{output}} \times (1 - H_{\text{output}})
 \]
 
 #### **9. Weight Updates (Gradient Descent)**  
 \[
-Wo = Wo + (\eta \times H_{\text{output}}^T \times \Delta O)
+W_o = W_o + (\eta \times H_{\text{output}}^T \times \Delta O)
 \]
 \[
-Wh = Wh + (\eta \times X^T \times \Delta H)
+W_h = W_h + (\eta \times X^T \times \Delta H)
 \]
 
 #### **10. Bias Updates**  
 \[
-Bo = Bo + (\eta \times \Delta O)
+B_o = B_o + (\eta \times \sum \Delta O)
 \]
 \[
-Bh = Bh + (\eta \times \Delta H)
+B_h = B_h + (\eta \times \sum \Delta H)
 \]
 
 #### **11. Mean Squared Error (MSE)**  
@@ -72,7 +70,7 @@ Bh = Bh + (\eta \times \Delta H)
 \text{MSE} = \frac{1}{n} \sum (y - O_{\text{output}})^2
 \]
 
-These formulas iterate until the error is minimized.
+These formulas are used iteratively until the error is minimized.
 *******************************************************************************************
 
 ### **Neural Network Training**  
