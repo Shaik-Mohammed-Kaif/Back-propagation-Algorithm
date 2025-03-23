@@ -3,72 +3,42 @@ This Algo to Process Back propagation Algorithm.
 
 ### **Neural Network Training Formulas**  
 
-#### **1. Data Normalization**  
-\[
-X_{\text{normalized}} = \frac{X}{\max(X)}
-\]
-\[
-y_{\text{normalized}} = \frac{y}{\max(y)}
-\]
+#### 1. Data Normalization
+X_normalized = X / max(X)  
+y_normalized = y / max(y)  
 
-#### **2. Hidden Layer Input**  
-\[
-H_{\text{input}} = (X \times W_h) + B_h
-\]
+#### 2. Hidden Layer Input
+H_input = (X * Wh) + Bh  
 
-#### **3. Activation Function (Sigmoid)**  
-\[
-f(x) = \frac{1}{1 + e^{-x}}
-\]
-\[
-H_{\text{output}} = f(H_{\text{input}})
-\]
+#### 3. Activation Function (Sigmoid)
+f(x) = 1 / (1 + exp(-x))  
+H_output = f(H_input)  
 
-#### **4. Output Layer Input**  
-\[
-O_{\text{input}} = (H_{\text{output}} \times W_o) + B_o
-\]
+#### 4. Output Layer Input
+O_input = (H_output * Wo) + Bo  
 
-#### **5. Output Activation (Sigmoid)**  
-\[
-O_{\text{output}} = f(O_{\text{input}})
-\]
+#### 5. Output Activation (Sigmoid)
+O_output = f(O_input)  
 
-#### **6. Error Calculation**  
-\[
-E = y - O_{\text{output}}
-\]
+#### 6. Error Calculation
+E = y - O_output  
 
-#### **7. Gradient for Output Layer**  
-\[
-\Delta O = E \times O_{\text{output}} \times (1 - O_{\text{output}})
-\]
+#### 7. Gradient for Output Layer
+ΔO = E * O_output * (1 - O_output)  
 
-#### **8. Gradient for Hidden Layer**  
-\[
-\Delta H = \Delta O \times W_o^T \times H_{\text{output}} \times (1 - H_{\text{output}})
-\]
+#### 8. Gradient for Hidden Layer
+ΔH = ΔO * Wo^T * H_output * (1 - H_output)  
 
-#### **9. Weight Updates (Gradient Descent)**  
-\[
-W_o = W_o + (\eta \times H_{\text{output}}^T \times \Delta O)
-\]
-\[
-W_h = W_h + (\eta \times X^T \times \Delta H)
-\]
+#### 9. Weight Updates (Gradient Descent)
+Wo = Wo + (η * H_output^T * ΔO)  
+Wh = Wh + (η * X^T * ΔH)  
 
-#### **10. Bias Updates**  
-\[
-B_o = B_o + (\eta \times \sum \Delta O)
-\]
-\[
-B_h = B_h + (\eta \times \sum \Delta H)
-\]
+#### 10. Bias Updates
+Bo = Bo + (η * ΔO)  
+Bh = Bh + (η * ΔH)  
 
-#### **11. Mean Squared Error (MSE)**  
-\[
-\text{MSE} = \frac{1}{n} \sum (y - O_{\text{output}})^2
-\]
+#### 11. Mean Squared Error (MSE)
+MSE = (1/n) * Σ (y - O_output)^2  
 
 These formulas are used iteratively until the error is minimized.
 *******************************************************************************************
